@@ -70,14 +70,14 @@ main {
   padding: 0 1em;
 }
 
-/* section {
+section {
   margin: 0 auto;
   background-color: var(--light);
   border-radius: var(--border-rad-lg);
   padding: 0.25em 1em;
   box-shadow: 0px 1px 18px 3px var(--dark);
   max-width: 420px;
-} */
+}
 
 /* =================
     Setup 

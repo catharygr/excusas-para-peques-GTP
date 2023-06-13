@@ -11,9 +11,9 @@ function App() {
         <div className="setup-inner">
           <div className="speech-bubble-ai" id="speech-bubble-ai">
             <p id="movie-boss-text">
-              Give me a one-sentence concept and I'll give you an eye-catching
-              title, a synopsis the studios will love, a movie poster... AND
-              choose the cast!
+              Dame un concepto en una oración y te proporcionaré un título
+              llamativo, un resumen que los estudios amarán, un póster de
+              película... ¡Y elegiré el reparto!
             </p>
           </div>
         </div>
@@ -23,7 +23,7 @@ function App() {
         >
           <textarea
             id="setup-textarea"
-            placeholder="An evil genius wants to take over the world using AI."
+            placeholder="Un genio maligno quiere conquistar el mundo utilizando la IA."
           ></textarea>
           <button className="send-btn" id="send-btn" aria-label="send"></button>
         </div>
