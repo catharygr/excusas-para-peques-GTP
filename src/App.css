@@ -88,6 +88,12 @@ section {
   justify-content: flex-end;
   padding: 2.5em 1.5em;
   min-height: 274px;
+  gap: 1rem;
+}
+
+.setup-inner > img {
+  width: 40%;
+  align-self: center;
 }
 
 .setup-input-container {
@@ -202,26 +208,7 @@ button:hover {
 }
 
 .send-btn > img {
-  width: 1.6em;
-  vertical-align: middle;
-}
-
-.view-pitch-btn {
-  color: var(--light);
-  border-radius: var(--border-rad-lg);
-  padding: 1em;
-  margin: 0.4em auto;
-  display: block;
-  font-size: 1.2em;
-}
-
-.view-pitch-btn:hover {
-  box-shadow: 1px 1px 5px 1px var(--medium-dark);
-}
-
-img.loading {
-  max-width: 40px;
-  filter: none;
+  width: 1.8em;
 }
 
 /* =================
@@ -249,7 +236,7 @@ img.loading {
 footer {
   background-color: var(--dark);
   color: var(--light);
-  padding: 0.8em;
-  font-size: 0.7em;
+  padding: 1rem;
+  font-size: 0.9em;
   text-align: center;
 }
