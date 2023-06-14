@@ -27,7 +27,7 @@ body {
 }
 
 /* =================
-    Typography 
+    Tipografia 
    ================= */
 
 h1 {
@@ -85,16 +85,10 @@ section {
 
 .setup-inner {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-end;
   padding: 2.5em 1.5em;
   min-height: 274px;
 }
-
-/* .setup-inner > img {
-  width: 60%;
-  filter: drop-shadow(4px 3px 4px var(--medium-dark));
-  align-self: center;
-} */
 
 .setup-input-container {
   min-height: 74px;

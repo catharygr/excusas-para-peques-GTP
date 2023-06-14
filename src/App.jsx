@@ -10,10 +10,10 @@ function App() {
       <section id="setup-container">
         <div className="setup-inner">
           <div className="speech-bubble-ai" id="speech-bubble-ai">
-            <p id="movie-boss-text">
-              Dame un concepto en una oración y te proporcionaré un título
-              llamativo, un resumen que los estudios amarán, un póster de
-              película... ¡Y elegiré el reparto!
+            <p id="excusas-boss-text">
+              Ups! Parece que se me olvidó hacer la tarea. Pero es que un
+              alienígena aterrizó en nuestro jardín y me distrajo toda la noche.
+              ¡Fue realmente increíble
             </p>
           </div>
         </div>
