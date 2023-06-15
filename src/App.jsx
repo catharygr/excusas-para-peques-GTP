@@ -4,7 +4,7 @@ import "./App.css";
 import { process } from "./env";
 
 const openaiConfig = new Configuration({
-  apiKey: process.env.OPENAI_API_KEYq,
+  apiKey: process.env.OPENAI_API_KEY,
 });
 
 function App() {
