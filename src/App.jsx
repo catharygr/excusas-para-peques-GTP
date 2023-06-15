@@ -1,31 +1,36 @@
-import  { useState } from "react";
+import { useState } from "react";
 import { Configuration, OpenAIApi } from "openai";
+import "./App.css";
+import { process } from "./env";
+
+const openaiConfig = new Configuration({
+  apiKey: process.env.OPENAI_API_KEYq,
+});
 
 function App() {
   const [excuse, setExcuse] = useState("");
 
-  const generateExcuse = async () => {
+  async function generateExcuse() {
     try {
-      const openaiConfig = new Configuration({
-        apiKey: "TU_API_KEY_DE_OPENAI", 
-      });
-
       const openaiApi = new OpenAIApi(openaiConfig);
       const prompt =
         "Un genio maligno quiere conquistar el mundo utilizando la IA.";
 
-      const response = await openaiApi.completions.create({
-        engine: "davinci",  openai
-        prompt,
+      const response = await openaiApi.createChatCompletion({
+        model: "text-davinci-003",
+        messages: [{ role: "system", content: prompt }],
         max_tokens: 100,
+        temperature: 0.9,
       });
 
-      const excuseText = response.choices[0].text.trim();
+      console.log(response);
+
+      const excuseText = response.choices[0].message.content.trim();
       setExcuse(excuseText);
     } catch (error) {
       console.error("Error al generar la excusa:", error);
     }
-  };
+  }
 
   return (
     <div>
@@ -48,7 +53,7 @@ function App() {
             <textarea
               id="setup-textarea"
               placeholder="Un genio maligno quiere conquistar el mundo utilizando la IA."
-            ></textarea>
+            />
             <button
               className="send-btn"
               id="send-btn"
