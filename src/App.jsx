@@ -6,30 +6,26 @@ import { process } from "./env";
 const openaiConfig = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
+const openaiApi = new OpenAIApi(openaiConfig);
 
 function App() {
   const [excuse, setExcuse] = useState("");
 
   async function generateExcuse() {
-    try {
-      const openaiApi = new OpenAIApi(openaiConfig);
-      const prompt =
-        "Un genio maligno quiere conquistar el mundo utilizando la IA.";
-
-      const response = await openaiApi.createChatCompletion({
-        model: "text-davinci-003",
-        messages: [{ role: "system", content: prompt }],
-        max_tokens: 100,
-        temperature: 0.9,
-      });
+  	const response = await openai.createCompletion({
+      'model': 'text-davinci-003',
+      'prompt': 'Sound enthusiastic in five words or less.'
+    })
+    console.log(response.data.choices[0].text.trim())
+      };
 
       console.log(response);
 
       const excuseText = response.choices[0].message.content.trim();
       setExcuse(excuseText);
-    } catch (error) {
-      console.error("Error al generar la excusa:", error);
     }
+  } catch (error) { 
+    console.error(error);
   }
 
   return (
