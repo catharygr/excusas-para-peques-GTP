@@ -63,8 +63,8 @@ function App() {
           <h2 id="output-stars"></h2>
           <p id="output-text"></p>
         </section>
+        <footer>&copy; 2023 ExcusasPeques todos los derechos reservados</footer>
       </main>
-      <footer>&copy; 2023 ExcusasPeques todos los derechos reservados</footer>
     </div>
   );
 }

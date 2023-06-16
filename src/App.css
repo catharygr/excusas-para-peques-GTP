@@ -234,9 +234,14 @@ button:hover {
    ================= */
 
 footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 0.8em;
   background-color: var(--dark);
   color: var(--light);
   padding: 1rem;
   font-size: 0.9em;
-  text-align: center;
 }
