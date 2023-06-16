@@ -12,9 +12,9 @@ function App() {
   const [excuse, setExcuse] = useState("");
 
   async function generateExcuse() {
-  	const response = await openai.createCompletion({
+  	const response = await openaiApi.createCompletion({
       'model': 'text-davinci-003',
-      'prompt': 'Sound enthusiastic in five words or less.'
+      'prompt': 'Contestar a la pregunta: ¿Por qué no has hecho los deberes?',
     })
     console.log(response.data.choices[0].text.trim())
       };
@@ -24,9 +24,8 @@ function App() {
       const excuseText = response.choices[0].message.content.trim();
       setExcuse(excuseText);
     }
-  } catch (error) { 
-    console.error(error);
-  }
+   
+  
 
   return (
     <div>
