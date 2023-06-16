@@ -12,20 +12,18 @@ function App() {
   const [excuse, setExcuse] = useState("");
 
   async function generateExcuse() {
-  	const response = await openaiApi.createCompletion({
-      'model': 'text-davinci-003',
-      'prompt': 'Contestar a la pregunta: ¿Por qué no has hecho los deberes?',
-    })
-    console.log(response.data.choices[0].text.trim())
-      };
+    try {
+      const response = await openaiApi.createCompletion({
+        model: "text-davinci-003",
+        prompt: "Contestar a la pregunta: ¿Por qué no has hecho los deberes?",
+      });
 
-      console.log(response);
-
-      const excuseText = response.choices[0].message.content.trim();
+      const excuseText = response.choices[0].text.trim();
       setExcuse(excuseText);
+    } catch (error) {
+      console.error("Error al generar la excusa:", error);
     }
-   
-  
+  }
 
   return (
     <div>
