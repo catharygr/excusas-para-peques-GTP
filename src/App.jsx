@@ -12,7 +12,7 @@ function App() {
         "https://api.openai.com/v1/engines/text-davinci-003/completions",
         {
           prompt: "Contestar a la pregunta: ¿Por qué no has hecho los deberes?",
-          max_tokens: 150,
+          max_tokens: 70,
           temperature: 0.9,
         },
         {
