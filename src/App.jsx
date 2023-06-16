@@ -1,28 +1,41 @@
-import { useState } from "react";
-import { Configuration, OpenAIApi } from "openai";
+import React, { useState } from "react";
+import axios from "axios";
 import "./App.css";
 import { process } from "./env";
-
-const openaiConfig = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY,
-});
-const openaiApi = new OpenAIApi(openaiConfig);
 
 function App() {
   const [excuse, setExcuse] = useState("");
 
   async function generateExcuse() {
     try {
-      const response = await openaiApi.createCompletion({
-        model: "text-davinci-003",
-        prompt: "Contestar a la pregunta: ¿Por qué no has hecho los deberes?",
-      });
+      const response = await axios.post(
+        "https://api.openai.com/v1/engines/text-davinci-003/completions",
+        {
+          prompt: "Contestar a la pregunta: ¿Por qué no has hecho los deberes?",
+          max_tokens: 64,
+          temperature: 0.9,
+          top_p: 1,
+          frequency_penalty: 0.0,
+          presence_penalty: 0.6,
+          stop: ["\n", "¿"],
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
+          },
+        }
+      );
 
-      const excuseText = response.choices[0].text.trim();
+      const excuseText = response.data.choices[0].text.trim();
+      console.log("Excusa generada:", excuseText);
       setExcuse(excuseText);
     } catch (error) {
       console.error("Error al generar la excusa:", error);
     }
+  }
+
+  function handleTextareaChange(event) {
+    setExcuse(event.target.value);
   }
 
   return (
@@ -46,14 +59,16 @@ function App() {
             <textarea
               id="setup-textarea"
               placeholder="Un genio maligno quiere conquistar el mundo utilizando la IA."
-            />
+              value={excuse}
+              onChange={handleTextareaChange}
+            ></textarea>
             <button
               className="send-btn"
               id="send-btn"
               aria-label="send"
               onClick={generateExcuse}
             >
-              <img src="images/flecha.jpg" alt="flecha"></img>
+              <img src="images/flecha.jpg" alt="flecha" />
             </button>
           </div>
         </section>
@@ -63,8 +78,8 @@ function App() {
           <h2 id="output-stars"></h2>
           <p id="output-text"></p>
         </section>
-        <footer>&copy; 2023 ExcusasPeques todos los derechos reservados</footer>
       </main>
+      <footer>&copy; 2023 ExcusasPeques todos los derechos reservados</footer>
     </div>
   );
 }
