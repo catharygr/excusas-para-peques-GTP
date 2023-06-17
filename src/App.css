@@ -102,14 +102,10 @@ section {
 }
 
 .speech-bubble-ai {
-  /* max-width: 55%; */
-  /* min-height: 194px; */
   border-radius: var(--border-rad-lg);
   position: relative;
-  /* margin: 0; */
   border: 3px solid var(--medium-dark);
   background-color: var(--white);
-  /* align-self: flex-start; */
   display: flex;
   align-items: center;
 }

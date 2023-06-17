@@ -11,18 +11,21 @@ const openai = new OpenAIApi(configuration);
 
 function App() {
   const [excuse, setExcuse] = useState("");
+  const [response, setResponse] = useState("");
 
   async function generateExcuse() {
     try {
       const response = await openai.createCompletion({
-        model: "davinci",
+        model: "text-davinci-003",
         prompt: "Contestar a la pregunta: ¿Por qué no has hecho los deberes?",
         max_tokens: 70,
         temperature: 0.9,
       });
       const excuseText = response.data.choices[0].text.trim();
+      q;
       console.log("Excusa generada:", excuseText);
-      setExcuse(excuseText);
+      setExcuse(""); // Limpiar el textarea
+      setResponse(excuseText);
     } catch (error) {
       console.error("Error al generar la excusa:", error);
     }
@@ -44,11 +47,10 @@ function App() {
             <img src="/images/ett.jpg" alt="Imagen" />
             <div className="speech-bubble-ai" id="speech-bubble-ai">
               <p id="excusas-boss-text">
-                {" "}
-                Give me a one-sentence concept and I'll give you an eye-catching
-                title, a synopsis the studios will love, a movie poster... AND
-                choose the cast!
-              </p>{" "}
+                Give me a one-sentence concept and I am ll give you an
+                eye-catching title, a synopsis the studios will love, a movie
+                poster... AND choose the cast!
+              </p>
             </div>
           </div>
           <div
@@ -70,13 +72,15 @@ function App() {
               <img src="images/flecha.jpg" alt="flecha" />
             </button>
           </div>
+          <div className="response-container">
+            <input type="text" id="response-input" value={response} readOnly />
+          </div>
         </section>
         <section className="output-container" id="output-container">
           <div id="output-img-container" className="output-img-container"></div>
           <h1 id="output-title"></h1>
           <h2 id="output-stars"></h2>
-          <p id="output-text">{excuse}</p>{" "}
-          {/* Muestra la excusa generada en este elemento */}
+          <p id="output-text">{excuse}</p>
         </section>
       </main>
       <footer>&copy; 2023 ExcusasPeques todos los derechos reservados</footer>
