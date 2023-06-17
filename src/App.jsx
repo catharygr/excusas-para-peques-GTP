@@ -1,27 +1,25 @@
 import { useState } from "react";
-import axios from "axios";
 import "./App.css";
+import { Configuration, OpenAIApi } from "openai";
 import { process } from "./env";
+
+const configuration = new Configuration({
+  apiKey: process.env.OPENAI_API_KEY,
+});
+
+const openai = new OpenAIApi(configuration);
 
 function App() {
   const [excuse, setExcuse] = useState("");
 
   async function generateExcuse() {
     try {
-      const response = await axios.post(
-        "https://api.openai.com/v1/engines/text-davinci-003/completions",
-        {
-          prompt: "Contestar a la pregunta: ¿Por qué no has hecho los deberes?",
-          max_tokens: 70,
-          temperature: 0.9,
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
-          },
-        }
-      );
-
+      const response = await openai.createCompletion({
+        model: "davinci",
+        prompt: "Contestar a la pregunta: ¿Por qué no has hecho los deberes?",
+        max_tokens: 70,
+        temperature: 0.9,
+      });
       const excuseText = response.data.choices[0].text.trim();
       console.log("Excusa generada:", excuseText);
       setExcuse(excuseText);
@@ -45,7 +43,12 @@ function App() {
           <div className="setup-inner">
             <img src="/images/ett.jpg" alt="Imagen" />
             <div className="speech-bubble-ai" id="speech-bubble-ai">
-              <p id="excusas-boss-text">{excuse}</p>
+              <p id="excusas-boss-text">
+                {" "}
+                Give me a one-sentence concept and I'll give you an eye-catching
+                title, a synopsis the studios will love, a movie poster... AND
+                choose the cast!
+              </p>{" "}
             </div>
           </div>
           <div
@@ -72,7 +75,8 @@ function App() {
           <div id="output-img-container" className="output-img-container"></div>
           <h1 id="output-title"></h1>
           <h2 id="output-stars"></h2>
-          <p id="output-text"></p>
+          <p id="output-text">{excuse}</p>{" "}
+          {/* Muestra la excusa generada en este elemento */}
         </section>
       </main>
       <footer>&copy; 2023 ExcusasPeques todos los derechos reservados</footer>
