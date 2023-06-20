@@ -22,7 +22,6 @@ function App() {
         temperature: 0.9,
       });
       const excuseText = response.data.choices[0].text.trim();
-      q;
       console.log("Excusa generada:", excuseText);
       setExcuse(""); // Limpiar el textarea
       setResponse(excuseText);
@@ -47,9 +46,8 @@ function App() {
             <img src="/images/ett.jpg" alt="Imagen" />
             <div className="speech-bubble-ai" id="speech-bubble-ai">
               <p id="excusas-boss-text">
-                Give me a one-sentence concept and I am ll give you an
-                eye-catching title, a synopsis the studios will love, a movie
-                poster... AND choose the cast!
+                ¡Hola! Soy el jefe de ExcusasPeques. ¿Por qué no has hecho los
+                deberes?
               </p>
             </div>
           </div>
