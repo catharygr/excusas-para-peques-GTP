@@ -213,7 +213,7 @@ button:hover {
    ================= */
 
 .output-container {
-  display: none;
+  display: flex;
   flex-direction: column;
   margin: 1em auto;
   color: var(--dark);

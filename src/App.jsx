@@ -70,15 +70,12 @@ function App() {
               <img src="images/flecha.jpg" alt="flecha" />
             </button>
           </div>
-          <div className="response-container">
-            <input type="text" id="response-input" value={response} readOnly />
-          </div>
         </section>
         <section className="output-container" id="output-container">
           <div id="output-img-container" className="output-img-container"></div>
           <h1 id="output-title"></h1>
           <h2 id="output-stars"></h2>
-          <p id="output-text">{excuse}</p>
+          <p id="output-text">{response}</p>
         </section>
       </main>
       <footer>&copy; 2023 ExcusasPeques todos los derechos reservados</footer>
