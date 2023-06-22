@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./App.css";
 import { Configuration, OpenAIApi } from "openai";
 import { process } from "./env";
@@ -13,7 +13,7 @@ function App() {
   const [excuse, setExcuse] = useState("");
   const [response, setResponse] = useState("");
   const [bossText, setBossText] = useState(
-    "¡Hola! Soy el jefe de ExcusasPeques. ¿Por qué no has hecho los deberes?"
+    "¡Ponme a prueba! Dame una situación incómoda y graciosa, y te daré una excusa tan ingeniosa que hasta tus padres se reirán!"
   );
 
   async function generateExcuse() {
@@ -33,7 +33,7 @@ function App() {
       setExcuse(""); // Limpiar el textarea
       setResponse(excuseText);
       setBossText(
-        "¡Hola! Soy el jefe de ExcusasPeques. ¿Por qué no has hecho los deberes?"
+        "¡Ponme a prueba! Dame una situación incómoda y graciosa, y te daré una excusa tan ingeniosa que hasta tus padres se reirán!"
       );
     } catch (error) {
       console.error("Error al generar la excusa:", error);
