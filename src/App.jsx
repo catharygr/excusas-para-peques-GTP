@@ -58,16 +58,17 @@ function App() {
               <p id="excusas-boss-text">{bossText}</p>
             </div>
           </div>
-          <div
+          <form
             className="setup-inner setup-input-container"
             id="setup-input-container"
+            onSubmit={(event) => event.preventDefault()}
           >
             <textarea
               id="setup-textarea"
               placeholder="Un genio maligno quiere conquistar el mundo utilizando la IA."
               value={excuse}
               onChange={handleTextareaChange}
-            ></textarea>
+            />
             <button
               className="send-btn"
               id="send-btn"
@@ -76,10 +77,9 @@ function App() {
             >
               <img src="images/flecha.jpg" alt="flecha" />
             </button>
-          </div>
+          </form>
         </section>
         <section className="output-container" id="output-container">
-          <div id="output-img-container" className="output-img-container"></div>
           <h1 id="output-title"></h1>
           <h2 id="output-stars"></h2>
           <p id="output-text">{response}</p>
