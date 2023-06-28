@@ -16,21 +16,21 @@ function App() {
     "¡Ponme a prueba! Dame una situación incómoda y graciosa, y te daré una excusa tan ingeniosa que hasta tus padres se reirán!"
   );
 
-  async function generateExcuse() {
+  async function generateExcuse(event) {
+    event.preventDefault();
     try {
       setBossText("Espera en un momento, te responderé...");
 
       const response = await openai.createCompletion({
         model: "text-davinci-003",
         prompt: "Contestar a la pregunta: ¿Por qué no has hecho los deberes?",
-        max_tokens: 70,
-        temperature: 0.9,
+        max_tokens: 60,
       });
 
       const excuseText = response.data.choices[0].text.trim();
       console.log("Excusa generada:", excuseText);
 
-      setExcuse(""); // Limpiar el textarea
+      setExcuse("");
       setResponse(excuseText);
       setBossText(
         "¡Ponme a prueba! Dame una situación incómoda y graciosa, y te daré una excusa tan ingeniosa que hasta tus padres se reirán!"
@@ -61,7 +61,7 @@ function App() {
           <form
             className="setup-inner setup-input-container"
             id="setup-input-container"
-            onSubmit={(event) => event.preventDefault()}
+            onSubmit={generateExcuse}
           >
             <textarea
               id="setup-textarea"
@@ -73,7 +73,7 @@ function App() {
               className="send-btn"
               id="send-btn"
               aria-label="send"
-              onClick={generateExcuse}
+              type="submit"
             >
               <img src="images/flecha.jpg" alt="flecha" />
             </button>

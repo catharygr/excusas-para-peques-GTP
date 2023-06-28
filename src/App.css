@@ -16,13 +16,19 @@ body {
 
 body {
   font-family: "Poppins";
-  background-size: cover;
+  background-size: 100%;
   background-repeat: no-repeat;
   background-image: url("images/peques.jpg");
   /* height: 100vh; */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: space-between; */
+}
+
+@media (min-width: 420px) {
+  body {
+    background-image: url("images/peques.jpg");
+  }
 }
 
 /* =================
@@ -61,7 +67,7 @@ header > img {
 header {
   color: var(--light);
   font-size: 1em;
-  text-decoration: none;
+  /* text-decoration: none; */
   padding: 1rem 0;
 }
 
@@ -84,7 +90,7 @@ section {
 
 .setup-inner {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   padding: 2.5em 1.5em;
   max-width: 100%;
   min-height: 274px;
@@ -158,8 +164,8 @@ textarea::placeholder {
 }
 
 /* larger mobiles+ */
-
-@media (min-width: 380px) {
+/* 
+@media (min-width: 420px) {
   .setup-input-container {
     padding-top: 0;
   }
@@ -180,10 +186,10 @@ textarea::placeholder {
     font-size: 100%;
     opacity: 0.8;
   }
-}
+} */
 
 /* =================
-    Buttons & SVG 
+    Botones
    ================= */
 
 button {
