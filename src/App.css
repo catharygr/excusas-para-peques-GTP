@@ -14,16 +14,15 @@ body {
   font-size: 16px;
 }
 
-/* body {
-  font-family: "Poppins";
-  background-size: 100%;
-  background-repeat: no-repeat;
-  background-image: url("images/peques.jpg");
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-} */
+@media (min-width: 42rem) {
+  body {
+    font-family: "Poppins";
+    background-image: url("images/peques.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-size: 100%;
+  }
+}
 
 /* =================
     Tipografia 
@@ -61,25 +60,36 @@ header {
   padding: 1rem;
 }
 
-/* main {
-  padding: 0 1em;
-} */
+header > h1 {
+  font-size: 1.5em;
+  font-weight: 600;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  color: var(--dark);
+  padding: 1rem;
+  width: 420px;
+}
 
 section {
-  margin: 1rem;
   background-color: var(--light);
   border-radius: var(--border-rad-lg);
   padding: 2rem;
   box-shadow: 0px 1px 18px 3px var(--dark);
-  max-width: 420px;
+  margin: 1rem auto;
 }
 
 @media (min-width: 42rem) {
   section {
     margin: 1rem auto;
+    width: 420px;
   }
   header {
     width: 100%;
+    font-size: 2rem;
   }
   p {
     line-height: 1.5rem;
@@ -165,31 +175,6 @@ textarea::placeholder {
   opacity: 0.8;
 }
 
-/* larger mobiles+ */
-
-@media (min-width: 420px) {
-  .setup-input-container {
-    padding-top: 0;
-  }
-
-  .speech-bubble-ai:before {
-    top: 92px;
-  }
-
-  .speech-bubble-ai:after {
-    top: 96px;
-  }
-
-  .speech-bubble-ai > p {
-    font-size: 100%;
-  }
-
-  textarea::placeholder {
-    font-size: 100%;
-    opacity: 0.8;
-  }
-}
-
 /* ================= */
 /*    Buttons     */
 /* ================= */
@@ -223,8 +208,8 @@ button:hover {
   flex-direction: column;
   margin: 1rem auto;
   color: var(--dark);
-  padding: 2rem;
-  width: 100%;
+  padding: 1rem;
+  width: 420px;
 }
 
 #output-text {
