@@ -19,7 +19,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-image: url("images/peques.jpg");
-  height: 100vh;
+  /* height: 100vh; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
