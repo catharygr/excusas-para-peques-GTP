@@ -42,12 +42,12 @@ h2 {
    ================= */
 
 header {
-  background-color: var(--pink);
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 0.3em;
-  min-width: 420px;
+  width: 420px;
+  background-color: var(--pink);
 }
 
 header > img {
@@ -66,12 +66,10 @@ header > h1 {
 }
 
 main {
-  display: flex;
-  flex-direction: column;
   margin: 0 auto;
   color: var(--dark);
   padding: 1rem;
-  width: 420px;
+  min-width: 420px;
 }
 
 section {
@@ -109,8 +107,14 @@ section {
 }
 
 .setup-inner > img {
-  width: 55%;
+  max-width: 200px;
   align-self: flex-start;
+}
+
+@media (min-width: 42rem) {
+  .setup-inner > img {
+    max-width: 100px;
+  }
 }
 
 .setup-input-container {
@@ -202,15 +206,6 @@ button:hover {
 /* =================
     Output 
    ================= */
-
-.output-container {
-  display: flex;
-  flex-direction: column;
-  margin: 1rem auto;
-  color: var(--dark);
-  padding: 1rem;
-  width: 420px;
-}
 
 #output-text {
   text-align: center;
